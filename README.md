@@ -14,7 +14,7 @@ Demo: [演示地址](https://demo.epghub.com/)
 
 本项目可从多个来源获取 EPG 节目表数据，分析整合后以多种格式提供 EPG 服务。提供了良好的可配置和可扩展性，部署也非常简单而灵活。
 
-欢迎 [fork](/fork) 和提交 PR，一起完善本项目。
+欢迎 [fork](https://github.com/riverscn/epghub/fork) 和提交 PR，一起完善本项目。
 
 ## 特色
 
@@ -37,7 +37,7 @@ Demo: [演示地址](https://demo.epghub.com/)
 
 在本地部署，或者在服务器上部署，都可以使用 Docker。
 
-1. [Fork](/fork) 本项目
+1. [Fork](https://github.com/riverscn/epghub/fork) 本项目
 2. 修改频道配置文件 [`/config/channels.yaml`](/config/channels.yaml)
 3. 修改 [`/docker-compose.yml`](/docker-compose.yml) 中的环境变量、nginx 服务端口、映射的目录等
    - 默认使用项目目录中的 ./docker 目录，可修改为自己需要的
@@ -54,7 +54,7 @@ Demo: [演示地址](https://demo.epghub.com/)
 
 ## Cloudflare Pages + Workers
 
-1. [Fork](/fork) 本项目
+1. [Fork](https://github.com/riverscn/epghub/fork) 本项目
 2. 修改频道配置文件 [`/config/channels.yaml`](/config/channels.yaml)
 3. 在 Cloudflare Pages 中创建项目，选择 Fork 的项目：
    - Build command = `poetry run python main.py`
