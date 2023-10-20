@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "epg-combine"
+version = "0.1.0"
+description = "An EPG scraper"
+authors = ["Shun Li <riverscn@gmail.com>"]
+license = "GPL3"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pyyaml = "^6.0.1"
+requests = "^2.31.0"
+lxml = "^4.9.3"
+jinja2 = "^3.1.2"
+croniter = "^2.0.1"
+bs4 = "^0.0.1"
+apscheduler = "^3.10.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

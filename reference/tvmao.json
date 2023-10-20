@@ -1,0 +1,222 @@
+[
+    {
+        "ename": "BTV1",
+        "chname": "北京卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "BTV10",
+        "chname": "卡酷少儿",
+        "type": "卫视"
+    },
+    {
+        "ename": "CCQTV1",
+        "chname": "重庆卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "FJTV2",
+        "chname": "东南卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "XMTV5",
+        "chname": "厦门卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "GSTV1",
+        "chname": "甘肃卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "GDTV1",
+        "chname": "广东卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "SZTV1",
+        "chname": "深圳卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "NANFANG2",
+        "chname": "南方卫视（上星版）*",
+        "type": "卫视"
+    },
+    {
+        "ename": "GUANXI1",
+        "chname": "广西卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "GUIZOUTV1",
+        "chname": "贵州卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "TCTC1",
+        "chname": "海南卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "HEBEI1",
+        "chname": "河北卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "HLJTV1",
+        "chname": "黑龙江卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "HNTV1",
+        "chname": "河南卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "HUBEI1",
+        "chname": "湖北卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "HUNANTV1",
+        "chname": "湖南卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "HUNANTV2",
+        "chname": "湖南金鹰卡通频道",
+        "type": "卫视"
+    },
+    {
+        "ename": "JSTV1",
+        "chname": "江苏卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "JXTV1",
+        "chname": "江西卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "JILIN1",
+        "chname": "吉林卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "LNTV1",
+        "chname": "辽宁卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "NMGTV1",
+        "chname": "内蒙卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "NXTV2",
+        "chname": "宁夏卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "SXTV1",
+        "chname": "山西卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "SDTV1",
+        "chname": "山东卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "DONGFANG1",
+        "chname": "东方卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "TOONMAX1",
+        "chname": "哈哈炫动",
+        "type": "卫视"
+    },
+    {
+        "ename": "SHXITV1",
+        "chname": "陕西卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "SCTV1",
+        "chname": "四川卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "TJTV1",
+        "chname": "天津卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "XJTV1",
+        "chname": "新疆卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "YNTV1",
+        "chname": "云南卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "ZJTV1",
+        "chname": "浙江卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "QHTV1",
+        "chname": "青海卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "XIZANGTV1",
+        "chname": "西藏卫视(藏语)",
+        "type": "卫视"
+    },
+    {
+        "ename": "XIZANGTV2",
+        "chname": "西藏卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "YANBIAN1",
+        "chname": "延边卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "BINGTUAN",
+        "chname": "兵团卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "HXTV",
+        "chname": "海峡卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "HHWS",
+        "chname": "黄河卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "KAMBA-TV",
+        "chname": "康巴卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "SANSHATV",
+        "chname": "三沙卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "AHTV1",
+        "chname": "安徽卫视",
+        "type": "卫视"
+    }
+]

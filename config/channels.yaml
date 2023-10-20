@@ -1,0 +1,243 @@
+# Channel list
+---
+cctv1:
+  name:
+    - CCTV1 综合
+  scraper:
+    cctv:
+  refresh: once
+  recap: 7
+  preview: 2
+
+cctv2:
+  name:
+    - CCTV2 财经
+  scraper:
+    cctv:
+  refresh: once
+  recap: 7
+  preview: 2
+
+cctv3:
+  name:
+    - CCTV3 综艺
+  scraper:
+    cctv:
+  refresh: once
+  recap: 7
+  preview: 2
+
+cctv4:
+  name:
+    - CCTV4 中文国际
+  scraper:
+    cctv:
+  refresh: once
+  recap: 7
+  preview: 2
+
+cctv5:
+  name:
+    - CCTV5 体育
+  scraper:
+    cctv:
+  refresh: once
+  recap: 7
+  preview: 2
+
+cctv5+:
+  name:
+    - CCTV5+ 体育赛事
+  scraper:
+    cctv: cctv5plus
+  refresh: once
+  recap: 7
+  preview: 2
+
+cctv6:
+  name:
+    - CCTV6 电影
+  scraper:
+    cctv:
+  refresh: once
+  recap: 7
+  preview: 2
+
+cctv8:
+  name:
+    - CCTV8 电视剧
+  scraper:
+    cctv:
+  refresh: once
+  recap: 7
+  preview: 2
+
+cctv9:
+  name:
+    - CCTV9 纪录
+  scraper:
+    cctv: cctvjilu
+  plugin: weibo_cctv9
+  refresh: today
+  recap: 7
+  preview: 2
+
+cctv10:
+  name:
+    - CCTV10 科教
+  scraper:
+    cctv:
+  refresh: once
+  recap: 7
+  preview: 2
+
+cctv13:
+  name:
+    - CCTV13 新闻
+  scraper:
+    cctv:
+  refresh: once
+  recap: 7
+  preview: 2
+
+cctv16:
+  name:
+    - CCTV16 奥林匹克
+  scraper:
+    cctv:
+  refresh: once
+  recap: 7
+  preview: 2
+
+cctv4k:
+  name:
+    - CCTV4K 超高清
+  scraper:
+    cctv:
+  refresh: once
+  recap: 7
+  preview: 2
+
+cctv8k:
+  name:
+    - CCTV8K 超高清
+  scraper:
+    cctv:
+  refresh: once
+  recap: 7
+  preview: 2
+
+zhejiangtv:
+  name:
+    - 浙江卫视
+  scraper:
+    tvmao: ZJTV1
+    cctv: zhejiang
+  refresh: once
+  recap: 7
+  preview: 2
+
+dongfangtv:
+  name:
+    - 东方卫视
+  scraper:
+    tvmao: DONGFANG1
+    cctv: dongfang
+  refresh: once
+  recap: 7
+  preview: 2
+
+hunantv:
+  name:
+    - 湖南卫视
+  scraper:
+    tvmao: HUNANTV2
+    cctv: hunan
+  refresh: once
+  recap: 7
+  preview: 2
+
+jiangsutv:
+  name:
+    - 江苏卫视
+  scraper:
+    tvmao: JSTV1
+    cctv: jiangsu
+  refresh: once
+  recap: 7
+  preview: 2
+
+beijingtv:
+  name:
+    - 北京卫视
+  scraper:
+    tvmao: BTV1
+    cctv: btv1
+  refresh: once
+  recap: 7
+  preview: 2
+
+zjdj:
+  name:
+    - 之江纪录
+  scraper:
+    cztv: 112
+  refresh: once
+  recap: 7
+  preview: 2
+
+htv:
+  name:
+    - 杭州1综合
+  scraper:
+    tvsou: 630175b5
+  refresh: once
+  recap: 7
+  preview: 2
+
+PhoenixChineseChannel.hk:
+  name:
+    - 凤凰卫视中文
+  scraper:
+    mytvsuper: PCC
+  lang: tc
+  refresh: once
+  recap: 7
+  preview: 2
+
+PhoenixInfoNewsChannel.hk:
+  name:
+    - 凤凰卫视资讯
+  scraper:
+    mytvsuper: PIN
+  lang: tc
+  refresh: once
+  recap: 7
+  preview: 2
+
+DiscoveryChannelAsia.tw:
+  name:
+    - 探索频道亚洲
+  scraper:
+    discoverychannel_tw: 4
+  refresh: once
+  recap: 7
+  preview: 2
+
+DiscoveryChannelChinese.tw:
+  name:
+    - 探索频道
+  scraper:
+    discoverychannel_tw: 1
+  refresh: once
+  recap: 7
+  preview: 2
+
+AninmalPlanet.tw:
+  name:
+    - 动物星球
+  scraper:
+    discoverychannel_tw: 2
+  refresh: once
+  recap: 7
+  preview: 2

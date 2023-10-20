@@ -1,0 +1,757 @@
+[
+    {
+        "ename": "cctv1",
+        "chname": "CCTV-1 综合",
+        "type": "央视"
+    },
+    {
+        "ename": "cctv2",
+        "chname": "CCTV-2 财经",
+        "type": "央视"
+    },
+    {
+        "ename": "cctv3",
+        "chname": "CCTV-3 综艺",
+        "type": "央视"
+    },
+    {
+        "ename": "cctv4",
+        "chname": "CCTV-4 (亚洲)",
+        "type": "央视"
+    },
+    {
+        "ename": "cctveurope",
+        "chname": "CCTV-4 (欧洲)",
+        "type": "央视"
+    },
+    {
+        "ename": "cctvamerica",
+        "chname": "CCTV-4 (美洲)",
+        "type": "央视"
+    },
+    {
+        "ename": "cctv5",
+        "chname": "CCTV-5 体育",
+        "type": "央视"
+    },
+    {
+        "ename": "cctv5plus",
+        "chname": "CCTV体育赛事",
+        "type": "央视"
+    },
+    {
+        "ename": "cctv6",
+        "chname": "CCTV-6 电影",
+        "type": "央视"
+    },
+    {
+        "ename": "cctv7",
+        "chname": "CCTV-7 军事农业",
+        "type": "央视"
+    },
+    {
+        "ename": "cctv8",
+        "chname": "CCTV-8 电视剧",
+        "type": "央视"
+    },
+    {
+        "ename": "cctvdoc",
+        "chname": "CCTV-9 纪录(英)",
+        "type": "央视"
+    },
+    {
+        "ename": "cctvjilu",
+        "chname": "CCTV-9 纪录",
+        "type": "央视"
+    },
+    {
+        "ename": "cctv10",
+        "chname": "CCTV-10 科教",
+        "type": "央视"
+    },
+    {
+        "ename": "cctv11",
+        "chname": "CCTV-11 戏曲",
+        "type": "央视"
+    },
+    {
+        "ename": "cctv12",
+        "chname": "CCTV-12 社会与法",
+        "type": "央视"
+    },
+    {
+        "ename": "cctv13",
+        "chname": "CCTV-13 新闻",
+        "type": "央视"
+    },
+    {
+        "ename": "cctvchild",
+        "chname": "CCTV-14 少儿",
+        "type": "央视"
+    },
+    {
+        "ename": "cctv15",
+        "chname": "CCTV-15 音乐",
+        "type": "央视"
+    },
+    {
+        "ename": "cctvxiyu",
+        "chname": "CCTV-Español",
+        "type": "央视"
+    },
+    {
+        "ename": "cctvfrench",
+        "chname": "CCTV-Français",
+        "type": "央视"
+    },
+    {
+        "ename": "cctv9",
+        "chname": "CCTV-NEWS",
+        "type": "央视"
+    },
+    {
+        "ename": "cctvrussian",
+        "chname": "CCTV-Русский",
+        "type": "央视"
+    },
+    {
+        "ename": "anhui",
+        "chname": "安徽卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "btv1",
+        "chname": "北京卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "dongfang",
+        "chname": "东方卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "hunan",
+        "chname": "湖南卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "jiangsu",
+        "chname": "江苏卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "zhejiang",
+        "chname": "浙江卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "shandong",
+        "chname": "山东卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "tianjin",
+        "chname": "天津卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "neimenggu",
+        "chname": "内蒙古卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "dongnan",
+        "chname": "东南卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "henan",
+        "chname": "河南卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "guangxi",
+        "chname": "广西卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "guizhou",
+        "chname": "贵州卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "gansu",
+        "chname": "甘肃卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "liaoning",
+        "chname": "辽宁卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "jiangxi",
+        "chname": "江西卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "hubei",
+        "chname": "湖北卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "travel",
+        "chname": "旅游卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "yunnan",
+        "chname": "云南卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "qinghai",
+        "chname": "青海卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "xiamen",
+        "chname": "厦门卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "hebei",
+        "chname": "河北卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "jilin",
+        "chname": "吉林卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "chongqing",
+        "chname": "重庆卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "xizang",
+        "chname": "西藏卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "ningxia",
+        "chname": "宁夏卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "shan1xi",
+        "chname": "山西卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "heilongjiang",
+        "chname": "黑龙江卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "sdetv",
+        "chname": "山东教育台",
+        "type": "卫视"
+    },
+    {
+        "ename": "guangdong",
+        "chname": "广东卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "sichuan",
+        "chname": "四川卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "shan3xi",
+        "chname": "陕西卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "xinjiang",
+        "chname": "新疆卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "btv5",
+        "chname": "BTV财经",
+        "type": "地方"
+    },
+    {
+        "ename": "btv2",
+        "chname": "BTV文艺",
+        "type": "地方"
+    },
+    {
+        "ename": "btv3",
+        "chname": "BTV科教",
+        "type": "地方"
+    },
+    {
+        "ename": "btv4",
+        "chname": "BTV影视",
+        "type": "地方"
+    },
+    {
+        "ename": "btv7",
+        "chname": "BTV生活",
+        "type": "地方"
+    },
+    {
+        "ename": "btv8",
+        "chname": "BTV青少",
+        "type": "地方"
+    },
+    {
+        "ename": "btv6",
+        "chname": "BTV体育",
+        "type": "地方"
+    },
+    {
+        "ename": "btv9",
+        "chname": "BTV新闻",
+        "type": "地方"
+    },
+    {
+        "ename": "tianjinbh2",
+        "chname": "滨海综艺频道",
+        "type": "地方"
+    },
+    {
+        "ename": "xiamen1",
+        "chname": "厦门一套",
+        "type": "地方"
+    },
+    {
+        "ename": "xiamen2",
+        "chname": "厦门二套",
+        "type": "地方"
+    },
+    {
+        "ename": "xiamen3",
+        "chname": "厦门三套",
+        "type": "地方"
+    },
+    {
+        "ename": "xiamen4",
+        "chname": "厦门四套",
+        "type": "地方"
+    },
+    {
+        "ename": "zhuhaiyitao",
+        "chname": "珠海一套",
+        "type": "地方"
+    },
+    {
+        "ename": "zhuhaiertao",
+        "chname": "珠海二套",
+        "type": "地方"
+    },
+    {
+        "ename": "xingtaizonghe",
+        "chname": "邢台综合",
+        "type": "地方"
+    },
+    {
+        "ename": "xingtaishenghuo",
+        "chname": "邢台生活",
+        "type": "地方"
+    },
+    {
+        "ename": "liaoningds",
+        "chname": "辽宁都市",
+        "type": "地方"
+    },
+    {
+        "ename": "cdtv1",
+        "chname": "成都新闻综合",
+        "type": "地方"
+    },
+    {
+        "ename": "cdtv5",
+        "chname": "成都公共",
+        "type": "地方"
+    },
+    {
+        "ename": "tianjinbh",
+        "chname": "滨海新闻综合",
+        "type": "地方"
+    },
+    {
+        "ename": "cdtv2new",
+        "chname": "成都经济资讯服务",
+        "type": "地方"
+    },
+    {
+        "ename": "cetv1",
+        "chname": "CETV-1",
+        "type": "CETV"
+    },
+    {
+        "ename": "cetv2",
+        "chname": "CETV-2",
+        "type": "CETV"
+    },
+    {
+        "ename": "cetv3",
+        "chname": "CETV-3",
+        "type": "CETV"
+    },
+    {
+        "ename": "nbtv1",
+        "chname": "宁波一套",
+        "type": "地方"
+    },
+    {
+        "ename": "nbtv2",
+        "chname": "宁波二套",
+        "type": "地方"
+    },
+    {
+        "ename": "nbtv3",
+        "chname": "宁波三套",
+        "type": "地方"
+    },
+    {
+        "ename": "cctvfyzq",
+        "chname": "CCTV风云足球",
+        "type": "数字"
+    },
+    {
+        "ename": "cctvgaowang",
+        "chname": "CCTV高尔夫网球",
+        "type": "数字"
+    },
+    {
+        "ename": "taiqiu",
+        "chname": "CCTV央视台球",
+        "type": "数字"
+    },
+    {
+        "ename": "zhinan",
+        "chname": "CCTV电视指南",
+        "type": "数字"
+    },
+    {
+        "ename": "fyjc",
+        "chname": "CCTV风云剧场",
+        "type": "数字"
+    },
+    {
+        "ename": "cctvdianying",
+        "chname": "CCTV 电影",
+        "type": "数字"
+    },
+    {
+        "ename": "hjjc",
+        "chname": "CCTV怀旧剧场",
+        "type": "数字"
+    },
+    {
+        "ename": "diyijuchang",
+        "chname": "CCTV第一剧场",
+        "type": "数字"
+    },
+    {
+        "ename": "shijiedili",
+        "chname": "CCTV世界地理",
+        "type": "数字"
+    },
+    {
+        "ename": "xinkedongman",
+        "chname": "CCTV新科动漫",
+        "type": "数字"
+    },
+    {
+        "ename": "cctvlaogushi",
+        "chname": "CCTV老故事",
+        "type": "数字"
+    },
+    {
+        "ename": "faxianzhilv",
+        "chname": "CCTV发现之旅",
+        "type": "数字"
+    },
+    {
+        "ename": "jingpin",
+        "chname": "CCTV央视文化精品",
+        "type": "数字"
+    },
+    {
+        "ename": "fyyy",
+        "chname": "CCTV风云音乐",
+        "type": "数字"
+    },
+    {
+        "ename": "dianshigouwu",
+        "chname": "CCTV中视购物",
+        "type": "数字"
+    },
+    {
+        "ename": "zhongxuesheng",
+        "chname": "CCTV中学生",
+        "type": "数字"
+    },
+    {
+        "ename": "cctvyule",
+        "chname": "CCTV娱乐",
+        "type": "数字"
+    },
+    {
+        "ename": "cctvxiqu",
+        "chname": "CCTV戏曲",
+        "type": "数字"
+    },
+    {
+        "ename": "guofang",
+        "chname": "CCTV国防军事",
+        "type": "数字"
+    },
+    {
+        "ename": "shishang",
+        "chname": "CCTV女性时尚",
+        "type": "数字"
+    },
+    {
+        "ename": "cctvqixiang",
+        "chname": "CCTV气象",
+        "type": "数字"
+    },
+    {
+        "ename": "cctvwaiyu",
+        "chname": "CCTV外语节目单",
+        "type": "其他"
+    },
+    {
+        "ename": "cctvzhengquanzixun",
+        "chname": "证券资讯",
+        "type": "数字"
+    },
+    {
+        "ename": "cctvliangzhuang",
+        "chname": "靓妆",
+        "type": "数字"
+    },
+    {
+        "ename": "cctvliyuan",
+        "chname": "梨园",
+        "type": "数字"
+    },
+    {
+        "ename": "cctvqimo",
+        "chname": "汽摩",
+        "type": "数字"
+    },
+    {
+        "ename": "cctv3d",
+        "chname": "中国3D电视试验频道",
+        "type": "数字"
+    },
+    {
+        "ename": "cctvarabic",
+        "chname": "CCTV-العربية",
+        "type": "央视"
+    },
+    {
+        "ename": "tianyuanweiqi",
+        "chname": "天元围棋",
+        "type": "数字"
+    },
+    {
+        "ename": "xianfengjilu",
+        "chname": "茶频道",
+        "type": "数字"
+    },
+    {
+        "ename": "xiandainvxing",
+        "chname": "现代女性",
+        "type": "数字"
+    },
+    {
+        "ename": "yingyufudao",
+        "chname": "英语辅导",
+        "type": "数字"
+    },
+    {
+        "ename": "youxijingji",
+        "chname": "游戏竞技",
+        "type": "数字"
+    },
+    {
+        "ename": "huanqiuqiguan",
+        "chname": "环球奇观",
+        "type": "数字"
+    },
+    {
+        "ename": "shuhua",
+        "chname": "书画",
+        "type": "数字"
+    },
+    {
+        "ename": "dvshenghuo",
+        "chname": "DV生活",
+        "type": "数字"
+    },
+    {
+        "ename": "caimingzaixian",
+        "chname": "彩民在线",
+        "type": "数字"
+    },
+    {
+        "ename": "gaoerfu",
+        "chname": "高尔夫",
+        "type": "数字"
+    },
+    {
+        "ename": "zaoqijiaoyu",
+        "chname": "早期教育",
+        "type": "数字"
+    },
+    {
+        "ename": "baobeijia",
+        "chname": "宝贝家",
+        "type": "数字"
+    },
+    {
+        "ename": "liuxueshijie",
+        "chname": "留学世界",
+        "type": "数字"
+    },
+    {
+        "ename": "sheyingpindao",
+        "chname": "摄影",
+        "type": "数字"
+    },
+    {
+        "ename": "shuowenjiezi",
+        "chname": "国学频道",
+        "type": "数字"
+    },
+    {
+        "ename": "wenwubaoku",
+        "chname": "文物宝库",
+        "type": "数字"
+    },
+    {
+        "ename": "wushushijie",
+        "chname": "武术世界",
+        "type": "数字"
+    },
+    {
+        "ename": "kuailechuidiao",
+        "chname": "快乐垂钓",
+        "type": "数字"
+    },
+    {
+        "ename": "xianggangweishi",
+        "chname": "香港卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "yanbian",
+        "chname": "延边卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "bingtuan",
+        "chname": "兵团卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "shenzhen",
+        "chname": "深圳卫视",
+        "type": "卫视"
+    },
+    {
+        "ename": "gxzy",
+        "chname": "广西综艺",
+        "type": "地方"
+    },
+    {
+        "ename": "tianjin1",
+        "chname": "天津1套",
+        "type": "地方"
+    },
+    {
+        "ename": "tianjin2",
+        "chname": "天津2套",
+        "type": "地方"
+    },
+    {
+        "ename": "btvchild",
+        "chname": "BTV卡酷少儿",
+        "type": "地方"
+    },
+    {
+        "ename": "btvjishi",
+        "chname": "BTV纪实",
+        "type": "地方"
+    },
+    {
+        "ename": "btvInternational",
+        "chname": "BTV国际",
+        "type": "地方"
+    },
+    {
+        "ename": "xingtaishahe",
+        "chname": "邢台沙河",
+        "type": "地方"
+    },
+    {
+        "ename": "nbtv4",
+        "chname": "宁波四套",
+        "type": "地方"
+    },
+    {
+        "ename": "nbtv5",
+        "chname": "宁波五套",
+        "type": "地方"
+    },
+    {
+        "ename": "ipanda",
+        "chname": "熊猫频道",
+        "type": "原创"
+    },
+    {
+        "ename": "wsjk",
+        "chname": "卫生健康",
+        "type": "数字"
+    },
+    {
+        "ename": "wlchunwan",
+        "chname": "大型活动部网络春晚",
+        "type": "其他"
+    },
+    {
+        "ename": "xingtaigonggong",
+        "chname": "邢台公共",
+        "type": "地方"
+    },
+    {
+        "ename": "cntvgongfu",
+        "chname": "中国功夫频道",
+        "type": "原创"
+    },
+    {
+        "ename": "cntvmeishi",
+        "chname": "中国美食频道",
+        "type": "原创"
+    },
+    {
+        "ename": "cntvlishi",
+        "chname": "人文历史频道",
+        "type": "原创"
+    },
+    {
+        "ename": "cntvtravel",
+        "chname": "中国旅游频道",
+        "type": "原创"
+    }
+]

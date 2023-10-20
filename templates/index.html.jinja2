@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .break-line {
+            width: 100%;
+            height: 1px;
+            /* Set the desired height of the break line */
+            background: linear-gradient(to left, transparent, #8a8a8a, transparent) center;
+        }
+
+        .header {
+            color: #333;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .header p {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .program-list-container {
+            flex: 1;
+            max-width: 800px;
+        }
+
+        .channel-list-container {
+            flex: 1;
+            max-width: 200px;
+        }
+
+        .program-list {
+            width: 100%;
+            max-width: 100%;
+            border-collapse: collapse;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+            line-height: 16px;
+        }
+
+        .program-list th {
+            display: none;
+        }
+
+        .program-item:nth-child(odd) {
+            background-color: #f7f7f7;
+        }
+
+        .program-item:nth-child(even) {
+            background-color: #ebebeb;
+        }
+
+        .program-item td:first-child {
+            width: 60px;
+            text-align: right;
+            font-weight: bold;
+            color: #007BFF;
+        }
+
+        .program-item td {
+            padding: 10px;
+            line-height: 20px;
+            color: #333;
+        }
+
+        .channel-list {
+            text-align: left;
+            user-select: none;
+        }
+
+        .channel-item {
+            font-size: 16px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .selected {
+            color: #007BFF;
+        }
+
+        .now-playing {
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            text-decoration: none;
+            /* background-color: #007bff;
+            color: #fff;
+            padding: 5px 10px; */
+            border-radius: 4px;
+        }
+
+        .url-input {
+            position: absolute;
+            left: -9999px; /* 将元素移到视图之外的位置 */
+        }
+
+        .date-nav {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .date-prev {
+            cursor: pointer;
+            color: #007BFF;
+            user-select: none;
+            font-weight: bold;
+        }
+
+        .date-next {
+            cursor: pointer;
+            color: #007BFF;
+            user-select: none;
+            font-weight: bold;
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .program-list-container {
+                order: 2;
+            }
+
+            .channel-list-container {
+                order: 1;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>{{ title }}</h1>
+        <p>
+            <a href="/epg.xml">TVXML</a><a href="#" class="cta-button" id="copyEpgUrlButton">📋</a>
+            <span> </span>
+            <a href="/diyp">DIYP</a><a href="#" class="cta-button" id="copyDiypUrlButton">📋</a>
+        </p>
+        <p>{{ num_refresh_channels }}/{{ num_channels }} channels refreshed at {{ last_update_time }}</p>
+        <p>Next update will be triggered at {{ next_update_time }}</p>
+        <p>by {{ update_trigger }}</p>
+
+        <input type="text" value="/epg.xml" id="epgUrl" class="url-input" aria-label="URL" readonly />
+        <input type="text" value="/diyp" id="diypUrl" class="url-input" aria-label="URL" readonly />
+    </div>
+    <div class="break-line"></div>
+    <div class="container">
+        <div class="channel-list-container">
+            <div class="channel-list">
+                <div class="channel-item selected" data-channel="{{ first_channel }}">{{ first_channel }}</div>
+                {% for channel in channel_list %}
+                <div class="channel-item" data-channel="{{ channel }}">{{ channel }}</div>
+                {% endfor %}
+                <!-- Add more channel items here for additional channels -->
+            </div>
+        </div>
+        <div class="program-list-container">
+            <div class="date-nav">
+                <p>
+                    <span class="date-prev" id="prevDate">&lt;&lt; </span>
+                    <span class="date-now" id="currentDate">2023-10-10</span>
+                    <span class="date-next" id="nextDate"> &gt;&gt;</span>
+                </p>
+            </div>
+            <table class="program-list">
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Function to refresh the program list for the selected channel and date
+        function refreshProgramList(channelName, formattedDate) {
+            const programList = document.querySelector('.program-list tbody');
+
+            const currentDate = formattedDate;
+
+            const apiUrl = `/diyp?ch=${encodeURIComponent(channelName)}&date=${currentDate}`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    programList.innerHTML = '';
+                    currentTime = new Date();
+                    currentTime = new Date(currentTime.toISOString())
+
+                    if (data.epg_data) {
+                        data.epg_data.forEach((program, index) => {
+                            const programItem = document.createElement('tr');
+                            programItem.classList.add('program-item');
+
+                            // Format program start and end times with '{{timezone_name}}' time zone
+                            programStartTime = new Date(`${currentDate}T${program.start}{{timezone_offset}}`);
+                            programEndTime = new Date(`${currentDate}T${program.end}{{timezone_offset}}`);
+                            
+                            if (programEndTime < programStartTime) {
+                                programEndTime.setDate(programEndTime.getDate() + 1);
+                            }
+
+                            let programTitle = program.title;
+                            
+                            if (currentTime >= programStartTime && currentTime <= programEndTime) {
+                                programTitle = `<span class="now-playing">${program.title}</span>`;
+                            }
+
+                            programItem.innerHTML = `<td>${program.start}</td><td>${programTitle}</td>`;
+                            programList.appendChild(programItem);
+                            console.log(programTitle, programStartTime, programEndTime)
+                        });
+                    } else {
+                        programList.textContent = 'No program data available.';
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                    programList.textContent = 'Failed to retrieve program data.';
+                });
+        }
+
+        const channelItems = document.querySelectorAll('.channel-item');
+
+        channelItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Clear all selected items
+                channelItems.forEach(item => item.classList.remove('selected'));
+
+                // Toggle the selected state for the clicked item
+                item.classList.add('selected');
+
+                // Refresh the program list for the selected channel
+                goBackToday();
+            });
+        });
+        // Function to copy the URL to the clipboard
+        function copyURLToClipboard(elID) {
+            console.log(elID, 'copy to clipboard');
+            const epgUrl = document.getElementById(elID);
+            epgUrl.select();
+            document.execCommand('copy');
+        }
+
+        // Attach a click event listener to the "Copy URL" button
+        document.getElementById('copyEpgUrlButton').addEventListener('click', () => { copyURLToClipboard('epgUrl') });
+        document.getElementById('copyDiypUrlButton').addEventListener('click', () => { copyURLToClipboard('diypUrl') });
+
+        window.addEventListener('load', function () {
+            // Get the href attribute value
+            var hrefValueEpgUrl = document.getElementById('epgUrl').value;
+            var hrefValueDiypUrl = document.getElementById('diypUrl').value;
+            // Get the full URL including the base URL
+            var fullUrlEpgUrl = window.location.origin + hrefValueEpgUrl;
+            var fullUrlDiypUrl = window.location.origin + hrefValueDiypUrl;
+
+            // Set the full URL in the input box
+            document.getElementById('epgUrl').value = fullUrlEpgUrl;
+            document.getElementById('diypUrl').value = fullUrlDiypUrl;
+        });
+        // Function to update the date display
+        function updateDateDisplay(dateString) {
+            const currentDateElement = document.getElementById('currentDate');
+            currentDateElement.textContent = dateString;
+        }
+
+        // Function to handle the "Previous Date" button click
+        function goToPreviousDate() {
+            const currentDateElement = document.getElementById('currentDate');
+            const currentDate = currentDateElement.textContent;
+            const curDate = convertLocalTimeToTimezoneOffset(new Date(`${currentDate}`), "{{timezone_offset}}");
+            curDate.setDate(curDate.getDate() - 1);
+            console.log("Previous Date:", curDate);
+            const formattedDate = curDate.getFullYear() + '-' + String(curDate.getMonth() + 1).padStart(2, '0') + '-' + String(curDate.getDate()).padStart(2, '0');
+            updateDateDisplay(formattedDate);
+            const initiallySelectedChannel = document.querySelector('.channel-item.selected');
+            refreshProgramList(initiallySelectedChannel.getAttribute('data-channel'), formattedDate);
+        }
+
+        // Function to handle the "Next Date" button click
+        function goToNextDate() {
+            const currentDateElement = document.getElementById('currentDate');
+            const currentDate = currentDateElement.textContent;
+            const curDate = convertLocalTimeToTimezoneOffset(new Date(`${currentDate}`), "{{timezone_offset}}");
+            curDate.setDate(curDate.getDate() + 1);
+            console.log("Next Date:", curDate);
+            const formattedDate = curDate.getFullYear() + '-' + String(curDate.getMonth() + 1).padStart(2, '0') + '-' + String(curDate.getDate()).padStart(2, '0');
+            updateDateDisplay(formattedDate);
+            const initiallySelectedChannel = document.querySelector('.channel-item.selected');
+            refreshProgramList(initiallySelectedChannel.getAttribute('data-channel'), formattedDate);
+        }
+
+        // Function to go back to today
+        function goBackToday() {
+            // Create a Date object for the current UTC date and time
+            const currentDate = new Date();
+
+            const epgTime = convertLocalTimeToTimezoneOffset(currentDate, "{{timezone_offset}}");
+            console.log("EPG time:", epgTime, "EPG timezone: UTC{{timezone_offset}}");
+
+            const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+            const formattedDate = epgTime.toLocaleDateString('fr-CA', options);
+
+            updateDateDisplay(formattedDate);
+            const initiallySelectedChannel = document.querySelector('.channel-item.selected');
+            refreshProgramList(initiallySelectedChannel.getAttribute('data-channel'), formattedDate);
+        }
+
+        // Function to convert local time to timezone offset
+        function convertLocalTimeToTimezoneOffset(localTime, timezone_offset) {
+            // Extract hours and minutes from the time offset string
+            const sign = timezone_offset[0] === '-' ? -1 : 1;
+            const hours = parseInt(timezone_offset.slice(1, 3), 10);
+            const minutes = parseInt(timezone_offset.slice(3, 5), 10);
+
+            // Calculate the offset in milliseconds
+            const offsetMilliseconds = (hours * 60 + minutes) * 60 * 1000 * sign;;
+            const currentOffsetMilliseconds = localTime.getTimezoneOffset() * 60 * 1000;
+
+            // Adjust the Date object by adding the offset
+            localTime.setTime(localTime.getTime() + currentOffsetMilliseconds + offsetMilliseconds);
+            
+            return localTime;
+        }
+
+        // Attach event listeners to the "Previous Date" and "Next Date" buttons
+        const prevDateButton = document.getElementById('prevDate');
+        prevDateButton.addEventListener('click', goToPreviousDate);
+
+        const nextDateButton = document.getElementById('nextDate');
+        nextDateButton.addEventListener('click', goToNextDate);
+
+        // Refresh the program list for the initially selected channel
+        goBackToday()
+    </script>
+</body>
+
+</html>
