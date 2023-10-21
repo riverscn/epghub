@@ -39,9 +39,9 @@ Demo: [演示地址](https://demo.epghub.com/)
 
 1. [Fork](https://github.com/riverscn/epghub/fork) 本项目
 2. 修改频道配置文件 [`/config/channels.yaml`](/config/channels.yaml)
-3. 修改 [`/docker-compose.yml`](/docker-compose.yml) 中的环境变量、nginx 服务端口、映射的目录等
+3. 修改 [`/docker-compose.yml`](/docker-compose.yml) 中的环境变量、服务端口、映射的目录等
    - 默认使用项目目录中的 ./docker 目录，可修改为自己需要的
-   - 默认使用 88 端口，可修改为其它空闲端口
+   - 默认使用 8788 端口，可修改为其它空闲端口。但要注意必须同时修改文件中的所有端口号
 4. `git clone` fork的项目并 `cd` 到项目目录
 5. `docker-compose up --build -d` 启动服务
 6. 可通过部署机器的 `http://ip:port` 访问主页，获取节目信息和 xmltv 文件、DIYP 接口地址等
