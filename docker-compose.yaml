@@ -1,18 +1,30 @@
 version: "3.8"
 services:
   server:
-    image: nginx
+    image: node
     ports:
-      - 88:80
+      - 8788:8788 # If you change it, must change all the port numbers in the file
     volumes:
-      - ./docker/web:/www
-      - ./config/epg.example.conf:/etc/nginx/conf.d/default.conf
+      - .:/www
+    working_dir: /www
+    environment:
+      - NODE_ENV=production
+    command: npx wrangler pages dev docker/web --port 8788
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8788"]
+      interval: 5s
+      timeout: 1s
+      retries: 20
+      start_period: 10s
   builder:
     build: .
     volumes:
       - ./docker/config:/epghub/config
       - ./docker/web:/epghub/web
     environment:
-      - XMLTV_URL=http://server/epg.xml # Don't touch!
+      - XMLTV_URL=http://server:8788/epg.xml # Don't touch!
       - TZ=Asia/Shanghai
       - CRON_TRIGGER=0 1 * * *
+    depends_on:
+      server:
+        condition: service_healthy
