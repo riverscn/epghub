@@ -7,7 +7,10 @@ from . import headers
 from epg.scraper import tz_shanghai
 
 def get_channels(xmltv_url: str, dtd: etree.DTD | None = None) -> list[Channel]:
-    xml = requests.get(xmltv_url, headers=headers, timeout=5).content
+    try:
+        xml = requests.get(xmltv_url, headers=headers, timeout=5).content
+    except:
+        return []
     if dtd != None:
         xml_bytes = BytesIO(xml)
         try:
