@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "epg-combine"
+name = "epghub"
 version = "0.1.0"
-description = "An EPG scraper"
+description = "A multi-source EPG builder with extensibility."
 authors = ["Shun Li <riverscn@gmail.com>"]
 license = "GPL3"
 readme = "README.md"
