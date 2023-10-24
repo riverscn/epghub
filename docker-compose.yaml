@@ -9,7 +9,7 @@ services:
     working_dir: /www
     environment:
       - NODE_ENV=production
-    command: npx wrangler pages dev docker/web --port 8788
+    command: npx wrangler pages dev docker/web --compatibility-date=2023-10-16 --port 8788
     healthcheck:
       test: ["CMD", "curl", "http://localhost:8788"] # Don't use -f to ignore 404
       interval: 30s
