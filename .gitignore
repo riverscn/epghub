@@ -170,3 +170,4 @@ config/epg.conf
 *.bak
 .vscode/
 docker/
+.wrangler/

@@ -11,11 +11,11 @@ services:
       - NODE_ENV=production
     command: npx wrangler pages dev docker/web --port 8788
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8788"]
-      interval: 5s
+      test: ["CMD", "curl", "http://localhost:8788"] # Don't use -f to ignore 404
+      interval: 30s
       timeout: 1s
-      retries: 20
-      start_period: 10s
+      retries: 5
+      start_period: 15s
   builder:
     build: .
     volumes:
