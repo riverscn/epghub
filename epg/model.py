@@ -122,6 +122,7 @@ class Channel:
         Returns:
             Program: The next program, or None if there is no next program.
         """
+        self.programs.sort(key=lambda x: x.start_time)
         for program in self.programs:
             if program.start_time.astimezone() > now.astimezone():
                 return program
