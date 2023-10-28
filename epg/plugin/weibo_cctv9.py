@@ -74,15 +74,7 @@ def update(channel: Channel, date: date) -> int:
             if timedelta(minutes=-5) < program_new.start_time - program.start_time < timedelta(minutes=5) and program_new.title != program.title:
                 title_dict[program.title] = program_new.title
         
-    for program in channel.programs:
-        if title_dict.get(program.title):
-            if program.sub_title == '':
-                program.sub_title = program.title
-                program.title = title_dict[program.title]
-                program.scraper_id = "cctv9@weibo"
-                num_updated_programs += 1
-    
-    # find today's program and process "第x-y集" if ther is empty sub_title
+   # find today's program and process "第x-y集" if ther is empty sub_title
     # 《极速猎杀》第1-2集
     # 《寻找雪豹》第1—2集
     for program in channel.programs:
@@ -115,6 +107,14 @@ def update(channel: Channel, date: date) -> int:
                             new_program.scraper_id = "cctv9@weibo"
                             i += 1
                             num_updated_programs += 1
+ 
+    for program in channel.programs:
+        if title_dict.get(program.title):
+            if program.sub_title == '':
+                program.sub_title = program.title
+                program.title = title_dict[program.title]
+                program.scraper_id = "cctv9@weibo"
+                num_updated_programs += 1
     
     if num_updated_programs > 0:
         channel.metadata["last_scraper"] += "+weibo_cctv9"
