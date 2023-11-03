@@ -151,4 +151,5 @@ CCTV9 的这个插件是用来从 CCTV9 官方微博话题 #每日央视纪录�
 - [ ] 部分代码还不够严谨清晰，需要重构
 - [ ] xmltv 多语言标记支持
 - [x] plugin/weibo_cctv9 处理 `第x-y集` 的格式
+- [ ] 通过 plugin 增加 cctv10 的栏目预告内容
 - [ ] main.py 和 scheduler.py 写得比较潦草，将来可考虑合并为一个命令行程序，更优雅
