@@ -2,14 +2,13 @@ version: "3.8"
 services:
   server:
     image: node
-    ports:
-      - 8788:8788 # If you change it, must change all the port numbers in the file
+    network_mode: host
     volumes:
       - .:/www
     working_dir: /www
     environment:
       - NODE_ENV=production
-    command: npx wrangler pages dev docker/web --compatibility-date=2023-10-16 --port 8788
+    command: npx wrangler pages dev docker/web --compatibility-date=2023-10-16 --ip 0.0.0.0 --port 8788
     healthcheck:
       test: ["CMD", "curl", "http://localhost:8788"] # Don't use -f to ignore 404
       interval: 30s
@@ -18,6 +17,7 @@ services:
       start_period: 15s
   builder:
     build: .
+    network_mode: host
     volumes:
       - ./docker/config:/epghub/config
       - ./docker/web:/epghub/web
