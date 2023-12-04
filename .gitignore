@@ -171,3 +171,6 @@ config/epg.conf
 .vscode/
 docker/
 .wrangler/
+web/robots.txt
+web/404.json
+web/404.html
