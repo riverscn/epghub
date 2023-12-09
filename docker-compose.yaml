@@ -9,6 +9,7 @@ services:
     environment:
       - NODE_ENV=production
     command: npx wrangler pages dev docker/web --compatibility-date=2023-10-16 --ip 0.0.0.0 --port 8788
+    restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "http://localhost:8788"] # Don't use -f to ignore 404
       interval: 30s
@@ -25,6 +26,7 @@ services:
       - XMLTV_URL=http://server:8788/epg.xml # Don't touch!
       - TZ=Asia/Shanghai
       - CRON_TRIGGER=0 1 * * *
+    restart: unless-stopped
     depends_on:
       server:
         condition: service_healthy
