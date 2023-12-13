@@ -1,6 +1,6 @@
 FROM python:3.11-buster
 
-RUN pip install poetry==1.4.2
+RUN pip install poetry==1.7.1
 
 ENV POETRY_NO_INTERACTION=1 \
     POETRY_VIRTUALENVS_IN_PROJECT=1 \
@@ -14,7 +14,7 @@ WORKDIR /epghub
 COPY pyproject.toml poetry.lock ./
 RUN touch README.md
 
-RUN poetry install --without dev --no-root && rm -rf $POETRY_CACHE_DIR
+RUN poetry install --no-dev --no-root && rm -rf $POETRY_CACHE_DIR
 
 COPY xmltv.dtd ./xmltv.dtd
 COPY epg ./epg
@@ -22,8 +22,6 @@ COPY main.py ./main.py
 COPY scheduler.py ./scheduler.py
 COPY templates ./templates
 COPY config ./_config
-
-RUN poetry install --without dev
 
 CMD if [ ! -f /epghub/config/channels.yaml ]; then cp /epghub/_config/channels.yaml /epghub/config/channels.yaml; fi \
     && poetry run python main.py \
