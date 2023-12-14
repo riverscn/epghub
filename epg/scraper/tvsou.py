@@ -32,7 +32,7 @@ def grab_programs(channel_id: str, need_weekday: int) -> tuple:
             return False
     return (content, date)
 
-def parse_programs(content: tuple) -> list:
+def parse_programs(content: tuple, dt: date) -> list:
     '''
     Parse web page to find out program list.
     Return: (title, start time, end time) in list
@@ -46,8 +46,7 @@ def parse_programs(content: tuple) -> list:
     for line in content[0]:
         if line.text:
             try:
-                start_time = datetime.strptime(line.text,'%H:%M').astimezone(tz_shanghai).time()
-                start = datetime(year=date.year, month=date.month, day=date.day, hour=start_time.hour, minute=start_time.minute, second=0, microsecond=0, tzinfo=tz_shanghai)
+                start = datetime.strptime(line.text,'%H:%M').astimezone(tz_shanghai).replace(year=dt.year, month=dt.month, day=dt.day)
             except ValueError:
                 title = str(line.text).replace("::", ":")
         if title and start:
@@ -84,7 +83,7 @@ def update(channel: Channel, scraper_id: str | None = None, dt: date = datetime.
     if not bs_programs:
         return False
     else:
-        programs = parse_programs(bs_programs)
+        programs = parse_programs(bs_programs, dt)
         # Purge channel programs on this date
         channel.flush(dt)
         # Update channel programs on this date, if any

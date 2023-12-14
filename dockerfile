@@ -1,6 +1,6 @@
 FROM python:3.11-buster
 
-RUN pip install poetry==1.7.1
+RUN pip install poetry==1.7.1 -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 ENV POETRY_NO_INTERACTION=1 \
     POETRY_VIRTUALENVS_IN_PROJECT=1 \
@@ -14,7 +14,7 @@ WORKDIR /epghub
 COPY pyproject.toml poetry.lock ./
 RUN touch README.md
 
-RUN poetry install --no-dev --no-root && rm -rf $POETRY_CACHE_DIR
+RUN poetry source add --priority=default mirrors https://pypi.tuna.tsinghua.edu.cn/simple/ && poetry install --no-dev --no-root && rm -rf $POETRY_CACHE_DIR
 
 COPY xmltv.dtd ./xmltv.dtd
 COPY epg ./epg
