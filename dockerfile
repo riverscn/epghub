@@ -1,4 +1,4 @@
-FROM python:3.11-buster
+FROM python:3.11-bookworm
 
 RUN pip install poetry==1.7.1
 
