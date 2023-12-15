@@ -120,21 +120,22 @@ def update_preview(channel: Channel) -> int:
     if channel.metadata["preview"] > 0:
         max_date = datetime.now().date() + \
             timedelta(channel.metadata["preview"])
-        channel_max_date = datetime.now().date()
+        pointer_date = datetime.now().date()
         # for program in channel.programs:
         #     if program.start_time.date() > channel_max_date:
         #         channel_max_date = program.start_time.date()
-        if channel_max_date < max_date:
+        if pointer_date < max_date:
             print("preview <- ", end="", flush=True)
         else:
             print("no need to refresh preview", flush=True)
-        while channel_max_date < max_date:
-            channel_max_date += timedelta(1)
-            if channel.update(channel_max_date):
-                if channel_max_date < max_date:
-                    print(channel_max_date, channel.metadata["last_scraper"], end=", ", flush=True)
+        while pointer_date < max_date:
+            pointer_date += timedelta(1)
+            if channel.update(pointer_date):
+                previewed_days += 1
+                if pointer_date < max_date:
+                    print(pointer_date, channel.metadata["last_scraper"], end=", ", flush=True)
                 else:
-                    print(channel_max_date, channel.metadata["last_scraper"], flush=True)
+                    print(pointer_date, channel.metadata["last_scraper"], flush=True)
     return previewed_days
 
 
@@ -153,22 +154,22 @@ def update_recap(channel: Channel) -> int:
     if channel.metadata["recap"] > 0:
         min_date = datetime.now().date() - \
             timedelta(channel.metadata["recap"])
-        channel_min_date = datetime.now().date()
+        pointer_date = min_date
         for program in channel.programs:
-            if program.start_time.date() < channel_min_date:
-                channel_min_date = program.start_time.date()
-        if channel_min_date > min_date:
+            if program.start_time.date() < pointer_date:
+                pointer_date = program.start_time.date()
+        if pointer_date < datetime.now().date():
             print("recap <- ", end="", flush=True)
         else:
             print("no need to refresh recap", flush=True)
-        while channel_min_date > min_date:
-            channel_min_date -= timedelta(1)
-            if channel.update(channel_min_date):
+        while pointer_date < datetime.now().date():
+            if channel.update(pointer_date):
                 recaped_days += 1
-                if channel_min_date > min_date:
-                    print(channel_min_date, channel.metadata["last_scraper"], end=", ", flush=True)
+                if recaped_days < channel.metadata.get("recap"):
+                    print(pointer_date, channel.metadata["last_scraper"], end=", ", flush=True)
                 else:
-                    print(channel_min_date, channel.metadata["last_scraper"], flush=True)
+                    print(pointer_date, channel.metadata["last_scraper"], flush=True)
+            pointer_date += timedelta(1)
     return recaped_days
 
 def update_channel_full(channel, num_refresh_channels):
@@ -197,22 +198,20 @@ def update_channel_full(channel, num_refresh_channels):
         print(num_refresh_channels + 1, channel.id,
               channel.metadata["name"], "last update:", channel.metadata["last_update"])
         _update_recap(channel)
-        _update_preview(channel)
-        # Make sure today's programs are the last one to update, so that plugins can influence previews.
         print(channel.metadata["refresh"], "<- now", datetime.now().astimezone().isoformat(), end=" ", flush=True)
         if channel.update():
             print(channel.metadata["last_scraper"], flush=True)
+        _update_preview(channel)
         return True
     if channel.metadata["refresh"] == "once":
         if channel.metadata["last_update"].date() != datetime.now().date():
             print(num_refresh_channels + 1, channel.id,
                   channel.metadata["name"], "last update:", channel.metadata["last_update"])
             _update_recap(channel)
-            _update_preview(channel)
-            # Make sure today's programs are the last to one update, so that plugins can influence previews.
             print(channel.metadata["refresh"],
                   "<-", datetime.now().isoformat(), end=" ", flush=True)
             channel.update()
             print(channel.metadata["last_scraper"], flush=True)
+            _update_preview(channel)
             return True
     return False
