@@ -85,7 +85,7 @@ def update(channel: Channel, date: date) -> int:
             ):
                 title_dict[program.title] = program_new.title
 
-    # find today's program and process "第x-y集" if ther is empty sub_title
+    # find today's program and process "第x-y集" if there is empty sub_title
     # 《极速猎杀》第1-2集
     # 《寻找雪豹》第1—2集
     for program in channel.programs:
