@@ -4,7 +4,7 @@
             "name": "Python: main",
             "type": "python",
             "request": "launch",
-            "env":{ "XMLTV_URL": "http://localhost:8788/epg.xml", "TZ": "Asia/Shanghai"},
+            "env":{ "XMLTV_URL": "http://server:8788/epg.xml", "TZ": "Asia/Shanghai"},
             "program": "${workspaceFolder}/main.py",
             "console": "integratedTerminal",
             "justMyCode": true
