@@ -11,10 +11,10 @@ services:
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "http://localhost:8788"] # Don't use -f to ignore 404
-      interval: 30s
+      interval: 5s
       timeout: 1s
-      retries: 5
-      start_period: 15s
+      retries: 15
+      start_period: 5s
   devcontainer:
     build: .
     network_mode: service:server
