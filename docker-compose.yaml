@@ -25,7 +25,7 @@ services:
     environment:
       - XMLTV_URL=http://localhost:8788/epg.xml # Don't touch!
       - TZ=Asia/Shanghai
-      - CRON_TRIGGER=0 1 * * *
+      - CRON_TRIGGER=0 1,4 * * *
     restart: unless-stopped
     depends_on:
       server:
