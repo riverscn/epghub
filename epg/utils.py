@@ -155,14 +155,15 @@ def update_recap(channel: Channel) -> int:
         min_date = datetime.now().date() - \
             timedelta(channel.metadata["recap"])
         pointer_date = min_date
+        max_date = datetime.now().date()
         for program in channel.programs:
-            if program.start_time.date() < pointer_date:
-                pointer_date = program.start_time.date()
-        if pointer_date < datetime.now().date():
-            print("recap <- ", end="", flush=True)
+            if program.start_time.date() < max_date:
+                max_date = program.start_time.date()
+        if pointer_date < max_date:
+            print("recap", min_date, "->", str(max_date - timedelta(1)) + ":", end=" ", flush=True)
         else:
             print("no need to refresh recap", flush=True)
-        while pointer_date < datetime.now().date():
+        while pointer_date < max_date:
             if channel.update(pointer_date):
                 recaped_days += 1
                 if recaped_days < channel.metadata.get("recap"):
