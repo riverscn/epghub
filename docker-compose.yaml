@@ -23,7 +23,7 @@ services:
       - ./docker/config:/epghub/config
       - ./docker/web:/epghub/web
     environment:
-      - XMLTV_URL=http://server:8788/epg.xml # Don't touch!
+      - XMLTV_URL=http://localhost:8788/epg.xml # Don't touch!
       - TZ=Asia/Shanghai
       - CRON_TRIGGER=0 1 * * *
     restart: unless-stopped

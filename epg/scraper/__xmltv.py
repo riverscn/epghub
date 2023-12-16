@@ -10,6 +10,7 @@ def get_channels(xmltv_url: str, dtd: etree.DTD | None = None) -> list[Channel]:
     try:
         xml = requests.get(xmltv_url, headers=headers, timeout=5).content
     except:
+        print("Failed to get XMLTV")
         return []
     if dtd != None:
         xml_bytes = BytesIO(xml)
