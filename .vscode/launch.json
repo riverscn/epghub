@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "name": "Python: main",
+            "type": "python",
+            "request": "launch",
+            "env":{ "XMLTV_URL": "http://localhost:8788/epg.xml", "TZ": "Asia/Shanghai"},
+            "program": "${workspaceFolder}/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Python: File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "justMyCode": true
+        }
+    ]
+}

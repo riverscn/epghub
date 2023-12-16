@@ -168,7 +168,6 @@ web/epg.xml*
 web/diyp_files/
 config/epg.conf
 *.bak
-.vscode/
 docker/
 .wrangler/
 web/robots.txt
