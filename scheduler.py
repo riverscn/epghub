@@ -4,11 +4,13 @@ import time
 from datetime import timezone
 import os
 
-CRON_TRIGGER = os.getenv('CRON_TRIGGER', '0 0 * * *')
+CRON_TRIGGER = os.getenv("CRON_TRIGGER", "0 0 * * *")
+
 
 def my_task():
     print("CRON task：", time.strftime("%Y-%m-%d %H:%M:%S"))
     os.system("poetry run python main.py")
+
 
 # 创建一个调度器
 scheduler = BlockingScheduler()

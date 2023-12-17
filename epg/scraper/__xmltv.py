@@ -6,6 +6,7 @@ from io import BytesIO
 from . import headers
 from epg.scraper import tz_shanghai
 
+
 def get_channels(xmltv_url: str, dtd: etree.DTD | None = None) -> list[Channel]:
     try:
         xml = requests.get(xmltv_url, headers=headers, timeout=5).content
@@ -38,14 +39,29 @@ def get_channels(xmltv_url: str, dtd: etree.DTD | None = None) -> list[Channel]:
         channel.metadata.update({"last_update": last_update})
         xml_programmes = root.xpath(f"//programme[@channel='{channel.id}']")
         for xml_programme in xml_programmes:
-            start_time = datetime.strptime(xml_programme.get("start"), "%Y%m%d%H%M%S %z")
+            start_time = datetime.strptime(
+                xml_programme.get("start"), "%Y%m%d%H%M%S %z"
+            )
             end_time = datetime.strptime(xml_programme.get("stop"), "%Y%m%d%H%M%S %z")
             title = xml_programme.find("title").text
             try:
                 sub_title = xml_programme.find("sub-title").text
             except:
                 sub_title = ""
-            desc = xml_programme.find("desc").text if xml_programme.find("desc") is not None else ''
-            channel.programs.append(Program(title, start_time, end_time, channel.id + "@xmltv", desc, sub_title=sub_title))
+            desc = (
+                xml_programme.find("desc").text
+                if xml_programme.find("desc") is not None
+                else ""
+            )
+            channel.programs.append(
+                Program(
+                    title,
+                    start_time,
+                    end_time,
+                    channel.id + "@xmltv",
+                    desc,
+                    sub_title=sub_title,
+                )
+            )
             channel.programs.sort(key=lambda x: x.start_time)
     return channels

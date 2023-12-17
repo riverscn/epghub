@@ -23,6 +23,7 @@ import json
 import os
 import shutil
 
+
 def write(dir: str, channels: list[Channel]) -> bool:
     if not os.path.exists(dir):
         os.makedirs(dir)
@@ -33,33 +34,36 @@ def write(dir: str, channels: list[Channel]) -> bool:
         channel_epg = {}
         for program in channel.programs:
             try:
-                channel_epg[program.start_time.strftime(
-                    "%Y-%m-%d")]["channel_name"]
+                channel_epg[program.start_time.strftime("%Y-%m-%d")]["channel_name"]
             except KeyError:
-                channel_epg[program.start_time.strftime(
-                    "%Y-%m-%d")] = {}
-            channel_epg[program.start_time.strftime(
-                "%Y-%m-%d")]["channel_name"] = channel.metadata["name"][0]
-            channel_epg[program.start_time.strftime(
-                "%Y-%m-%d")]["date"] = program.start_time.strftime("%Y-%m-%d")
+                channel_epg[program.start_time.strftime("%Y-%m-%d")] = {}
+            channel_epg[program.start_time.strftime("%Y-%m-%d")][
+                "channel_name"
+            ] = channel.metadata["name"][0]
+            channel_epg[program.start_time.strftime("%Y-%m-%d")][
+                "date"
+            ] = program.start_time.strftime("%Y-%m-%d")
             try:
-                channel_epg[program.start_time.strftime(
-                    "%Y-%m-%d")]["epg_data"]
+                channel_epg[program.start_time.strftime("%Y-%m-%d")]["epg_data"]
             except KeyError:
-                channel_epg[program.start_time.strftime(
-                    "%Y-%m-%d")]["epg_data"] = []
-            channel_epg[program.start_time.strftime("%Y-%m-%d")]["epg_data"].append({
-                "start": program.start_time.astimezone().strftime("%H:%M"), # astimezone() is necessary
-                "end": program.end_time.astimezone().strftime("%H:%M"), # astimezone() is necessary
-                "title": program.title,
-                "desc": program.desc
-            })
+                channel_epg[program.start_time.strftime("%Y-%m-%d")]["epg_data"] = []
+            channel_epg[program.start_time.strftime("%Y-%m-%d")]["epg_data"].append(
+                {
+                    "start": program.start_time.astimezone().strftime(
+                        "%H:%M"
+                    ),  # astimezone() is necessary
+                    "end": program.end_time.astimezone().strftime(
+                        "%H:%M"
+                    ),  # astimezone() is necessary
+                    "title": program.title,
+                    "desc": program.desc,
+                }
+            )
         for date in channel_epg:
             json_dir = os.path.join(dir, channel_epg[date]["channel_name"])
             if not os.path.exists(json_dir):
                 os.makedirs(json_dir)
-            json_path = os.path.join(
-                json_dir, channel_epg[date]["date"] + ".json")
-            with open(json_path, 'w') as f:
+            json_path = os.path.join(json_dir, channel_epg[date]["date"] + ".json")
+            with open(json_path, "w") as f:
                 json.dump(channel_epg[date], f, ensure_ascii=False, indent=4)
     return True

@@ -50,10 +50,13 @@ import requests
 import json
 from . import headers, tz_shanghai
 
-def update(channel: Channel, scraper_id: str | None = None, dt: date = datetime.today().date()) -> bool:
+
+def update(
+    channel: Channel, scraper_id: str | None = None, dt: date = datetime.today().date()
+) -> bool:
     channel_id = channel.id if scraper_id == None else scraper_id
-    date_str = dt.strftime('%Y%m%d')
-    url = f'https://p.cztv.com/api/paas/program/{channel_id}/{date_str}'
+    date_str = dt.strftime("%Y%m%d")
+    url = f"https://p.cztv.com/api/paas/program/{channel_id}/{date_str}"
     try:
         res = requests.get(url, headers=headers, timeout=5)
     except:
@@ -64,18 +67,20 @@ def update(channel: Channel, scraper_id: str | None = None, dt: date = datetime.
         return False
     data = json.loads(res.text)
     try:
-        programs_data = data['content']['list'][0]['list']
+        programs_data = data["content"]["list"][0]["list"]
     except KeyError:
         return False
     # Purge channel programs on this date
     channel.flush(dt)
     # Update channel programs on this date
     for program in programs_data:
-        title = program['program_title']
+        title = program["program_title"]
         start_time = datetime.fromtimestamp(
-            int(program['play_time']) / 1000, tz=tz_shanghai)
-        end_time = start_time + timedelta(milliseconds=int(program['duration']))
-        channel.programs.append(Program(title, start_time, end_time, channel.id  + "@tv.cztv.com"))
-    channel.metadata.update({'last_update': datetime.now(
-        timezone.utc).astimezone()})
+            int(program["play_time"]) / 1000, tz=tz_shanghai
+        )
+        end_time = start_time + timedelta(milliseconds=int(program["duration"]))
+        channel.programs.append(
+            Program(title, start_time, end_time, channel.id + "@tv.cztv.com")
+        )
+    channel.metadata.update({"last_update": datetime.now(timezone.utc).astimezone()})
     return True

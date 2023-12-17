@@ -3,12 +3,14 @@ from epg.model import Channel, Program
 from datetime import datetime, date, timezone
 
 
-def update(channel: Channel, scraper_params: str, dt: date = datetime.today().date()) -> bool:
-    if scraper_params.find('@http') == -1:
+def update(
+    channel: Channel, scraper_params: str, dt: date = datetime.today().date()
+) -> bool:
+    if scraper_params.find("@http") == -1:
         scraper_url = scraper_params
     else:
-        scraper_id = scraper_params.split('@http', 1)[0]
-        scraper_url = "http" + scraper_params.split('@http', 1)[1]
+        scraper_id = scraper_params.split("@http", 1)[0]
+        scraper_url = "http" + scraper_params.split("@http", 1)[1]
     channel_id = channel.id if scraper_id == None else scraper_id
     scraper_channels = __xmltv.get_channels(scraper_url)
     for scraper_channel in scraper_channels:
@@ -22,8 +24,11 @@ def update(channel: Channel, scraper_params: str, dt: date = datetime.today().da
                 # Purge channel programs on this date
                 channel.flush(dt)
                 # Update channel programs on this date
-                channel.programs.append(Program(title, start_time, end_time, channel.id))
-        channel.metadata.update({'last_update': datetime.now(
-            timezone.utc).astimezone()})
+                channel.programs.append(
+                    Program(title, start_time, end_time, channel.id)
+                )
+        channel.metadata.update(
+            {"last_update": datetime.now(timezone.utc).astimezone()}
+        )
         return True
     return False
