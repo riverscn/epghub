@@ -44,7 +44,7 @@ def update(channel: Channel, date: date) -> int:
     """
     num_updated_programs = 0
     weibo_list = weibo_search(keyword, 1)
-    programs = []
+    programs_weibo = []
     for weibo in weibo_list:
         created_at = datetime.strptime(weibo["created_at"], "%a %b %d %H:%M:%S %z %Y")
         if created_at.date() == date:
@@ -70,17 +70,17 @@ def update(channel: Channel, date: date) -> int:
                 )
                 title = program[1]
                 title = title.replace("  ", " ")
-                programs.append(Program(title, start_time, None, "cctv9@weibo"))
+                programs_weibo.append(Program(title, start_time, None, "cctv9@weibo"))
     title_dict = {}
     for program in channel.programs:
         if program.sub_title != "":
             title_dict[program.sub_title] = program.title
-    for program_new in programs:
+    for program_new in programs_weibo:
         for program in channel.programs:
             if (
-                timedelta(minutes=-5)
-                < program_new.start_time - program.start_time
-                < timedelta(minutes=5)
+                timedelta(minutes=-15)
+                < program.start_time - program_new.start_time
+                < timedelta(minutes=15)
                 and program_new.title != program.title
             ):
                 title_dict[program.title] = program_new.title
