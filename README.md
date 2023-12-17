@@ -155,3 +155,5 @@ CCTV9 的这个插件是用来从 CCTV9 官方微博话题 #每日央视纪录�
 - [ ] main.py 和 scheduler.py 写得比较潦草，将来可考虑合并为一个命令行程序，更优雅
 - [ ] xmltv scraper 的调度可以更智能，加入缓存机制
 - [ ] plugin 应该作为 post process 出现
+- [ ] 支持直接下载和运行 iptv-org 脚本抓取 epg
+- [ ] 支持命令行输出 scraper 的频道列表
