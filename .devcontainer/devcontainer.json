@@ -4,5 +4,12 @@
     "dockerComposeFile": "docker-compose.yaml",
     "service": "devcontainer",
     "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-    "postStartCommand": "poetry install --no-root"
+    "postStartCommand": "poetry install --no-root",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "samuelcolvin.jinjahtml"
+            ]
+        }
+    }
 }
