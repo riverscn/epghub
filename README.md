@@ -157,3 +157,4 @@ CCTV9 的这个插件是用来从 CCTV9 官方微博话题 #每日央视纪录�
 - [ ] plugin 应该作为 post process 出现
 - [ ] 支持直接下载和运行 iptv-org 脚本抓取 epg
 - [ ] 支持命令行输出 scraper 的频道列表
+- [ ] 用 fastapi 重写一个 server，并融入命令行工具
