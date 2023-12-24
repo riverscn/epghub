@@ -42,7 +42,7 @@ Demo: [演示地址](https://demo.epghub.com/)
 3. 将频道配置文件 [`/config/channels.yaml`](/config/channels.yaml) 拷贝到 `/docker/config` 目录再修改。也可以不用修改，一次运行会自动将默认的拷贝过去，以后再修改即可
 4. （可选）修改 [`/docker-compose.yml`](/docker-compose.yml) 中的环境变量、服务端口、映射的目录等
    - 默认使用项目目录中的 ./docker 目录，可修改为自己需要的
-   - 默认使用 8788 端口，可修改为其它空闲端口。但要注意必须同时修改文件中的所有端口号
+   - 默认使用 6688 端口，可修改为其它空闲端口。但要注意必须同时修改文件中的所有端口号
 5. `docker-compose up --build -d` 启动服务
 6. 可通过部署机器的 `http://ip:port` 访问主页，获取节目信息和 xmltv 文件、DIYP 接口地址等
 

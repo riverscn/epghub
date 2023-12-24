@@ -19,10 +19,10 @@ RUN poetry install --no-dev --no-root && rm -rf $POETRY_CACHE_DIR
 COPY xmltv.dtd ./xmltv.dtd
 COPY epg ./epg
 COPY main.py ./main.py
+COPY api/app.py ./api/app.py
 COPY scheduler.py ./scheduler.py
 COPY templates ./templates
 COPY config ./_config
 
 CMD if [ ! -f /epghub/config/channels.yaml ]; then cp /epghub/_config/channels.yaml /epghub/config/channels.yaml; fi \
-    && poetry run python main.py \
     && poetry run python scheduler.py

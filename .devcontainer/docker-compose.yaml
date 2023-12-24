@@ -1,30 +1,13 @@
 version: "3.8"
 services:
-  server:
-    image: node
-    volumes:
-      - ..:/www
-    working_dir: /www
-    environment:
-      - NODE_ENV=production
-    command: npx wrangler pages dev web --compatibility-date=2023-10-16 --ip 0.0.0.0 --port 8788
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "curl", "http://localhost:8788"] # Don't use -f to ignore 404
-      interval: 5s
-      timeout: 1s
-      retries: 15
-      start_period: 5s
   devcontainer:
     build: .
-    network_mode: service:server
+    network_mode: bridge
     volumes:
       - ../..:/workspaces:cached
     environment:
-      - XMLTV_URL=http://server:8788/epg.xml # Don't touch!
+      - XMLTV_URL=http://127.0.0.1:8788/epg.xml # Don't touch!
       - TZ=Asia/Shanghai
       - CRON_TRIGGER=0 1,4 * * *
+      - PORT=8788
     command: sleep infinity
-    depends_on:
-      server:
-        condition: service_healthy
