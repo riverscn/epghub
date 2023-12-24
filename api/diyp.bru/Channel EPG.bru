@@ -1,0 +1,20 @@
+meta {
+  name: Channel EPG
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://localhost:8788/diyp?ch=CCTV9 纪录&date=2023-12-24
+  body: none
+  auth: none
+}
+
+query {
+  ch: CCTV9 纪录
+  date: 2023-12-24
+}
+
+headers {
+  Accept-Encoding:: gzip, deflate, br
+}
