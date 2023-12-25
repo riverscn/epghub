@@ -147,12 +147,11 @@ CCTV9 的这个插件是用来从 CCTV9 官方微博话题 #每日央视纪录�
 
 # 待改进
 
-- [x] 部分代码风格不统一，主要是 "" 与 '' 等
-- [ ] 部分代码还不够严谨清晰，需要重构
-- [ ] xmltv 多语言标记支持
-- [x] plugin/weibo_cctv9 处理 `第x-y集` 的格式
-- [ ] main.py 和 scheduler.py 写得比较潦草，将来可考虑合并为一个命令行程序，更优雅
-- [ ] xmltv scraper 的调度可以更智能，加入缓存机制
-- [ ] plugin 应该作为 post process 出现
-- [ ] 支持命令行输出 scraper 的频道列表
 - [x] 用 apiflask 重写一个 server
+- [ ] main.py 和 scheduler.py 写得比较潦草，将来可考虑合并为一个命令行程序，更优雅
+- [ ] 支持命令行输出 scraper 的频道列表
+- [ ] 部分代码还不够严谨清晰，需要重构
+  - [ ] recap/preview/today 应该作为一个连续时间范围合并处理
+  - [ ] 能够跨日期一次性获取的内容可以避免多次抓取
+  - [ ] plugin 应该作为 post process 出现
+- [ ] xmltv 多语言标记支持
