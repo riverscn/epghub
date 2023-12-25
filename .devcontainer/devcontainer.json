@@ -4,7 +4,7 @@
     "dockerComposeFile": "docker-compose.yaml",
     "service": "devcontainer",
     "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-    "postStartCommand": "poetry install --no-root",
+    "postCreateCommand": "poetry install --no-root",
     "customizations": {
         "vscode": {
             "extensions": [
