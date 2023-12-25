@@ -5,13 +5,13 @@ from flask_compress import Compress
 import json
 import os
 
+app = APIFlask(__name__)
+Compress(app)
+
 
 class ChannelIn(Schema):
     ch = String(required=True)
     date = Date("%Y-%m-%d", required=True)
-
-
-app = APIFlask(__name__)
 
 
 @app.get("/diyp")
@@ -54,6 +54,3 @@ def epg_xml():
 @app.route("/robots.txt")
 def robots_txt():
     return send_file(os.path.join(os.getcwd(), "web", "robots.txt"))
-
-compress = Compress()
-compress.init_app(app)
