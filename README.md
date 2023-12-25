@@ -8,10 +8,6 @@ Demo: [演示地址](https://demo.epghub.com/)
 
 但是节目表信息质量存在参差不齐，甚至需要综合多个来源，才能得到完整的信息。有的来源未必是标准的节目表格式。本项目就是为了解决这个问题。
 
-> 本项目受 [supzhang/epg](https://github.com/supzhang/epg) 以及 [iptv-org/epg](https://github.com/iptv-org/epg) 项目启发。感谢！
-
-> 本项目大量使用 ChatGPT 和 Github Copilot 协助生成的代码，事半功倍！包括本文，也是 Copilot 协助撰写的。
-
 本项目可从多个来源获取 EPG 节目表数据，分析整合后以多种格式提供 EPG 服务。提供了良好的可配置和可扩展性，部署也非常简单而灵活。
 
 欢迎 [fork](https://github.com/riverscn/epghub/fork) 和提交 PR，一起完善本项目。
@@ -144,6 +140,12 @@ CCTV9 的这个插件是用来从 CCTV9 官方微博话题 #每日央视纪录�
     10:00	全景自然2023-317    ->  10:00   《隐秘王国》第2集
     10:58	寰宇视野2023-291    ->  11:00   《蓝色星球》第二季 第4集
     11:59	特别呈现2023-293    ->  12:00   《大敦煌》第3集
+
+# 参考
+
+本项目受 [supzhang/epg](https://github.com/supzhang/epg) 以及 [iptv-org/epg](https://github.com/iptv-org/epg) 项目启发。感谢！
+
+本项目大量使用 ChatGPT 和 Github Copilot 协助生成的代码，事半功倍！包括本文，也是 Copilot 协助撰写的。
 
 # 待改进
 
