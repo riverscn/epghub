@@ -9,7 +9,8 @@
         "vscode": {
             "extensions": [
                 "samuelcolvin.jinjahtml",
-                "ms-python.black-formatter"
+                "ms-python.black-formatter",
+                "ms-python.python"
             ]
         }
     }
