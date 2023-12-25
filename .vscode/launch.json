@@ -1,10 +1,34 @@
 {
     "configurations": [
         {
+            "name": "Python: Flask",
+            "type": "python",
+            "request": "launch",
+            "module": "flask",
+            "env": {
+                "FLASK_APP": "api/app.py",
+                "FLASK_DEBUG": "1",
+                "XMLTV_URL": "http://127.0.0.1:8788/epg.xml",
+                "TZ": "Asia/Shanghai"
+            },
+            "args": [
+                "run",
+                "--debug",
+                "--no-debugger",
+                "--no-reload",
+                "--port=8788"
+            ],
+            "jinja": true,
+            "justMyCode": true
+        },
+        {
             "name": "Python: main",
             "type": "python",
             "request": "launch",
-            "env":{ "XMLTV_URL": "http://server:8788/epg.xml", "TZ": "Asia/Shanghai"},
+            "env": {
+                "XMLTV_URL": "http://127.0.0.1:8788/epg.xml",
+                "TZ": "Asia/Shanghai"
+            },
             "program": "${workspaceFolder}/main.py",
             "console": "integratedTerminal",
             "justMyCode": true
