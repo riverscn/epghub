@@ -18,11 +18,8 @@ app = APIFlask(__name__)
 @app.input(ChannelIn, "query")
 def diyp(query_data):
     # Read file web/diyp_files/{ch}/{date}.json and return json content
-    # If file not found, return templates/404.json (replace channel_name and date)
     ch = query_data["ch"]
     date = query_data["date"]
-    with open(os.path.join(os.getcwd(), "templates", "404.json"), "r") as f:
-        json_404 = json.load(f)
     try:
         with open(
             os.path.join(
@@ -35,7 +32,10 @@ def diyp(query_data):
             "r",
         ) as f:
             return json.load(f)
+    # If file not found, return templates/404.json (replace channel_name and date)
     except FileNotFoundError:
+        with open(os.path.join(os.getcwd(), "templates", "404.json"), "r") as f:
+            json_404 = json.load(f)
         json_404["channel_name"] = ch
         json_404["date"] = date.strftime("%Y-%m-%d")
         return json_404
