@@ -22,14 +22,14 @@
             "justMyCode": true
         },
         {
-            "name": "Python: main",
+            "name": "Python: scheduler",
             "type": "python",
             "request": "launch",
             "env": {
                 "XMLTV_URL": "http://127.0.0.1:8788/epg.xml",
                 "TZ": "Asia/Shanghai"
             },
-            "program": "${workspaceFolder}/main.py",
+            "program": "${workspaceFolder}/scheduler.py",
             "console": "integratedTerminal",
             "justMyCode": true
         },
