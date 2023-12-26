@@ -18,6 +18,7 @@ apscheduler = "^3.10.4"
 apiflask = "^2.1.0"
 gunicorn = "^21.2.0"
 flask-compress = "^1.14"
+gevent = "^23.9.1"
 
 
 [build-system]

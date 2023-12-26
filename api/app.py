@@ -1,8 +1,13 @@
+from gevent import monkey
+
+monkey.patch_all()
+
 from apiflask import APIFlask, Schema
 from apiflask.fields import String, Date
 from flask import send_file
 from flask_compress import Compress
 import os
+
 
 app = APIFlask(__name__, docs_path=None)
 Compress(app)
