@@ -29,7 +29,7 @@ def diyp(query_data):
             )
         )
     except FileNotFoundError:
-        return send_file(os.path.join(os.getcwd(), "templates", "404.json"))
+        return send_file(os.path.join(os.getcwd(), "web", "404.json"))
 
 
 @app.route("/")
