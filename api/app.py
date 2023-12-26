@@ -1,4 +1,4 @@
-from apiflask import APIFlask, Schema, EmptySchema
+from apiflask import APIFlask, Schema
 from apiflask.fields import String, Date
 from flask import send_file
 from flask_compress import Compress
@@ -33,18 +33,15 @@ def diyp(query_data):
 
 
 @app.route("/")
-@app.output(EmptySchema, content_type="text/html")
 def index():
     return send_file(os.path.join(os.getcwd(), "web", "index.html"))
 
 
 @app.route("/epg.xml")
-@app.output(EmptySchema, content_type="application/xml")
 def epg_xml():
     return send_file(os.path.join(os.getcwd(), "web", "epg.xml"))
 
 
 @app.route("/robots.txt")
-@app.output(EmptySchema, content_type="text/plain")
 def robots_txt():
     return send_file(os.path.join(os.getcwd(), "web", "robots.txt"))
