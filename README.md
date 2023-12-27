@@ -19,8 +19,8 @@ Demo: [演示地址](https://demo.epghub.com/)
 - DIYP 接口采用静态页面实现，很容易 serve，低碳环保
   - 关键是性能好，i5-1240P 25W qps 测试如下：
     ```bash
-    $ wrk -t12 -c400 -d30s http://localhost:6688/diyp%3Fch%3DCCTV1%20%E7%BB%BC%E5%90%88%26date%3D2023-12-26
-    Running 30s test @ http://localhost:6688/diyp%3Fch%3DCCTV1%20%E7%BB%BC%E5%90%88%26date%3D2023-12-26
+    $ wrk -t12 -c400 -d30s http://localhost:6688/diyp?ch=CCTV1%20%E7%BB%BC%E5%90%88&date=2023-12-26
+    Running 30s test @ http://localhost:6688/diyp?ch=CCTV1%20%E7%BB%BC%E5%90%88&date=2023-12-26
       12 threads and 400 connections
       Thread Stats   Avg      Stdev     Max   +/- Stdev
         Latency     2.70ms    4.55ms  93.80ms   91.85%
