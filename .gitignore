@@ -166,7 +166,6 @@ node_modules/
 web/index.html
 web/epg.xml*
 web/diyp_files/
-config/epg.conf
 *.bak
 docker/
 .wrangler/

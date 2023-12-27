@@ -3,7 +3,6 @@ from apscheduler.triggers.cron import CronTrigger
 import time
 from datetime import timezone
 import os
-import subprocess
 
 CRON_TRIGGER = os.getenv("CRON_TRIGGER", "0 0 * * *")
 
@@ -25,8 +24,6 @@ scheduler.add_job(my_task, cron_trigger)
 # 启动调度器
 print("Start api server...")
 PORT = os.getenv("PORT", "6688")
-server = subprocess.Popen(["gunicorn", "--worker-class", "gevent", "--workers", str(os.cpu_count()+1), "--bind", f"0.0.0.0:{PORT}", "--access-logfile", "-", "api.app:app"])
-time.sleep(3)
 os.system("poetry run python main.py")
 print(f"Start scheduler with cron trigger: {CRON_TRIGGER}", flush=True)
 scheduler.start()

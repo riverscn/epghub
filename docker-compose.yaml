@@ -1,10 +1,8 @@
 version: "3.8"
 services:
-  server:
+  builder:
     build: .
-    network_mode: bridge
-    ports:
-      - 6688:6688
+    network_mode: service:server
     volumes:
       - ./docker/config:/epghub/config
       - ./docker/web:/epghub/web
@@ -14,3 +12,20 @@ services:
       - CRON_TRIGGER=0 1,4 * * *
       - PORT=6688
     restart: unless-stopped
+    depends_on:
+      server:
+        condition: service_healthy
+  server:
+    image: openresty/openresty:alpine-fat
+    network_mode: host
+    volumes:
+      - ./config/openresty.conf:/usr/local/openresty/nginx/conf/nginx.conf
+      - ./config/epg.conf:/etc/nginx/conf.d/default.conf
+      - ./docker/web:/www
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "http://localhost:6688"] # Don't use -f to ignore 404
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
