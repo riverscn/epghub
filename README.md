@@ -17,17 +17,17 @@ Demo: [演示地址](https://demo.epghub.com/)
 - 采用 Python3 实现，区别于 iptv-org 的 Javascript。但想[转换刮削器](/epg/scraper/mytvsuper.py)是很容易的
 - 通过 yaml 文件进行配置, 使用无数据库设计，递归复用上一次的生成的 xmltv 结果。区别于 supzhang 使用的 Django
 - DIYP 接口采用静态页面实现，很容易 serve，低碳环保
-  - 关键是性能好，i5-1240P 25W qps 测试如下：
+  - 关键是性能好，i5-1240P ~500k qps 测试如下：
     ```bash
-    $ wrk -t12 -c400 -d30s http://localhost:6688/diyp?ch=CCTV1%20%E7%BB%BC%E5%90%88&date=2023-12-26
-    Running 30s test @ http://localhost:6688/diyp?ch=CCTV1%20%E7%BB%BC%E5%90%88&date=2023-12-26
+    $ wrk -t12 -c400 -d30s http://localhost:6688/diyp%3Fch%3DCCTV1%20%E7%BB%BC%E5%90%88%26date%3D2023-12-26
+    Running 30s test @ http://localhost:6688/diyp%3Fch%3DCCTV1%20%E7%BB%BC%E5%90%88%26date%3D2023-12-26
       12 threads and 400 connections
       Thread Stats   Avg      Stdev     Max   +/- Stdev
-        Latency     2.70ms    4.55ms  93.80ms   91.85%
-        Req/Sec    21.40k    12.06k   71.71k    69.95%
-      7669765 requests in 30.09s, 31.42GB read
-    Requests/sec: 254894.20
-    Transfer/sec:      1.04GB
+        Latency     1.33ms    1.95ms  53.85ms   88.88%
+        Req/Sec    40.09k    28.24k  141.14k    63.71%
+      14346177 requests in 30.06s, 58.77GB read
+    Requests/sec: 477172.04
+    Transfer/sec:      1.95GB
     ```
 - 添加刮削器是非常容易的，只需要增加刮削器 .py 文件，然后联动 yaml 里的配置即可
 - 支持刮削器的 plugin，进行后期处理，弥补数据源的不足
