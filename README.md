@@ -23,11 +23,11 @@ Demo: [演示地址](https://demo.epghub.com/)
     Running 30s test @ http://localhost:6688/diyp?ch=CCTV1%20%E7%BB%BC%E5%90%88&date=2023-12-26
       12 threads and 400 connections
       Thread Stats   Avg      Stdev     Max   +/- Stdev
-        Latency     1.33ms    1.95ms  53.85ms   88.88%
-        Req/Sec    40.09k    28.24k  141.14k    63.71%
-      14346177 requests in 30.06s, 58.77GB read
-    Requests/sec: 477172.04
-    Transfer/sec:      1.95GB
+        Latency     1.21ms    2.18ms  78.92ms   91.50%
+        Req/Sec    47.41k    23.67k  137.77k    65.80%
+      16987587 requests in 30.09s, 97.85GB read
+    Requests/sec: 564614.18
+    Transfer/sec:      3.25GB
     ```
 - 添加刮削器是非常容易的，只需要增加刮削器 .py 文件，然后联动 yaml 里的配置即可
 - 支持刮削器的 plugin，进行后期处理，弥补数据源的不足
