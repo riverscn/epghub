@@ -1,5 +1,7 @@
 # EPGHUB
 
+这是一个具有高扩展性、可定制性，以及具有高性能的电子节目表（EPG）创建工具和服务器。
+
 Demo: [演示地址](https://demo.epghub.com/)
 
 [EPG](https://zh.wikipedia.org/wiki/%E7%94%B5%E5%AD%90%E8%8A%82%E7%9B%AE%E6%8C%87%E5%8D%97) = **E**lectronic **P**rogramming **G**uide （电子节目表）
