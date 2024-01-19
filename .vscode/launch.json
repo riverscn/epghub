@@ -8,7 +8,8 @@
             "env": {
                 "FLASK_APP": "api/app.py",
                 "FLASK_DEBUG": "1",
-                "XMLTV_URL": "http://127.0.0.1:8788/epg.xml",
+                "PORT": "6688",
+                "XMLTV_URL": "http://server:6688/epg.xml",
                 "TZ": "Asia/Shanghai"
             },
             "args": [
@@ -16,7 +17,7 @@
                 "--debug",
                 "--no-debugger",
                 "--no-reload",
-                "--port=8788"
+                "--port=6688"
             ],
             "jinja": true,
             "justMyCode": true
@@ -26,7 +27,8 @@
             "type": "python",
             "request": "launch",
             "env": {
-                "XMLTV_URL": "http://127.0.0.1:8788/epg.xml",
+                "PORT": "6688",
+                "XMLTV_URL": "http://127.0.0.1:6688/epg.xml",
                 "TZ": "Asia/Shanghai"
             },
             "program": "${workspaceFolder}/scheduler.py",
@@ -37,6 +39,11 @@
             "name": "Python: File",
             "type": "python",
             "request": "launch",
+            "env": {
+                "PORT": "6688",
+                "XMLTV_URL": "http://127.0.0.1:6688/epg.xml",
+                "TZ": "Asia/Shanghai"
+            },
             "program": "${file}",
             "justMyCode": true
         }

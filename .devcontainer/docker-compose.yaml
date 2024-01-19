@@ -2,12 +2,26 @@ version: "3.8"
 services:
   devcontainer:
     build: .
-    network_mode: bridge
+    network_mode: host
     volumes:
       - ../..:/workspaces:cached
     environment:
-      - XMLTV_URL=http://127.0.0.1:8788/epg.xml # Don't touch!
+      - XMLTV_URL=http://127.0.0.1:6688/epg.xml # Don't touch!
       - TZ=Asia/Shanghai
       - CRON_TRIGGER=0 1,4 * * *
       - PORT=8788
     command: sleep infinity
+  # server:
+  #   image: openresty/openresty:alpine-fat
+  #   network_mode: host
+  #   volumes:
+  #     - ../config/openresty.conf:/usr/local/openresty/nginx/conf/nginx.conf
+  #     - ../config/epg.conf:/etc/nginx/conf.d/default.conf
+  #     - ../docker/web:/www
+  #   restart: unless-stopped
+  #   healthcheck:
+  #     test: ["CMD", "curl", "http://127.0.0.1:6688"] # Don't use -f to ignore 404
+  #     interval: 30s
+  #     timeout: 5s
+  #     retries: 3
+  #     start_period: 15s
