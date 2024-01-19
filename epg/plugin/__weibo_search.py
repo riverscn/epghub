@@ -41,7 +41,11 @@ def search(keyword: str, page: int = 1) -> list:
     # 提取微博数据
     weibo_list = []
     for card in cards:
-        if "mblog" in card["card_group"][0]:
-            weibo_list.append(card["card_group"][0]["mblog"])
+        card_group = card.get("card_group", [])
+        if card_group:
+            for card in card_group:
+                mblog = card.get("mblog", {})
+                if mblog:
+                    weibo_list.append(mblog)
 
     return weibo_list

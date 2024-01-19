@@ -53,8 +53,13 @@ else:
         xml_result = utils.copy_channels(channels, xml_channels)
         num_reuse_channels = xml_result[0]
         xml_dates = xml_result[1]
-        min_xml_date = min(xml_dates)
-        max_xml_date = max(xml_dates)
+        if xml_dates:
+            min_xml_date = min(xml_dates)
+            max_xml_date = max(xml_dates)
+        else:
+            print("xml_dates is empty")
+            min_xml_date = None
+            max_xml_date = None
         print(
             f"number of reused channels: {num_reuse_channels}/{len(channels)} from {min_xml_date} to {max_xml_date}",
             flush=True,
