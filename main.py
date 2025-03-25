@@ -15,7 +15,7 @@ DEPLOY_HOOK = os.getenv("DEPLOY_HOOK")
 CLOUDFLARE_API_TOKEN = os.getenv("CLOUDFLARE_API_TOKEN")
 XMLTV_URL = os.getenv("XMLTV_URL", "")
 TZ = os.getenv("TZ")
-if TZ == None:
+if TZ is None:
     print(
         "!!!Please set TZ environment variables to define timezone or it will use system timezone by default!!!"
     )
@@ -31,7 +31,7 @@ dtd = etree.DTD(open("xmltv.dtd", "r"))
 
 now = datetime.now()
 current_timezone = now.astimezone().tzinfo
-timezone_name = current_timezone.tzname(now)
+timezone_name = current_timezone.tzname(now) if current_timezone else "UTC"
 timezone_offset = now.astimezone().strftime("%z")
 print("use timezone:", timezone_name, f"UTC{timezone_offset}", flush=True)
 
@@ -127,16 +127,16 @@ shutil.copyfile(
     os.path.join(os.getcwd(), "web", "robots.txt"),
 )
 
-if CF_PAGES != None:
-    if CLOUDFLARE_API_TOKEN == None:
+if CF_PAGES is not None:
+    if CLOUDFLARE_API_TOKEN is None:
         print(
             "!!!Please set DEPLOY_HOOK environment variables to deploy automatically!!!"
         )
-    if DEPLOY_HOOK == None:
+    if DEPLOY_HOOK is None:
         print(
             "!!!Please set CLOUDFLARE_API_TOKEN environment variables to deploy automatically!!!"
         )
-    if DEPLOY_HOOK != None and CLOUDFLARE_API_TOKEN != None:
+    if DEPLOY_HOOK is not None and CLOUDFLARE_API_TOKEN is not None:
         cmd = f'cd workers && npx --yes wrangler deploy --var DEPLOY_HOOK:{DEPLOY_HOOK} --triggers "{CRON_TRIGGER}"'
         # print(cmd)
         os.system(cmd)
